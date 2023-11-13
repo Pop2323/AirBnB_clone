@@ -1,45 +1,54 @@
 #!/usr/bin/python3
-"""FileStorage Class"""
+""" Class FileStorage """
 from json import dump, load, dumps
-from models import base_model, amenity, city, place, review, state, user
 from os.path import exists
+from models import base_model, user, place, state, city, amenity, review
 
 BaseModel = base_model.BaseModel
-Amenity = amenity.Amenity
-City = city.City
-Place = place.Place
-Review = review.Review
-State = state.State
 User = user.User
-name_class = ["BaseModel", "Amenity", "City",
-              "Place", "Review", "State", "User"]
+Place = place.Place
+State = state.State
+City = city.City
+Amenity = amenity.Amenity
+Review = review.Review
+name_class = ["BaseModel", "City", "State",
+              "Place", "Amenity", "Review", "User"]
 
 
 class FileStorage:
+    """
+    """
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """return the dict __object"""
+        """
+        """
         return FileStorage.__objects
 
     def new(self, obj):
-        """sets object with key in __obj"""
+        """ sets  the obj with key in __objects
+        """
         class_name = obj.__class__.__name__
         id = obj.id
         clas_id = class_name + "." + id
         FileStorage.__objects[clas_id] = obj
 
     def save(self):
-        """Save file storage"""
-        dict_json = {}
+        """ file storage
+        """
+        dict_to_json = {}
         for key, value in FileStorage.__objects.items():
-            dict_json[key] = value.to_dict()
+            dict_to_json[key] = value.to_dict()
         with open(FileStorage.__file_path, "w", encoding='utf-8') as fil:
-            dump(dict_json, fil)
+            dump(dict_to_json, fil)
 
-    def reload(self, name_class):
-        """Deserialize JSON file to __objects"""
+    def reload(self):
+        """ if (__file_path) exists deserializes JSON file to __objects
+            elif , do nothing. If the file not exist,
+        """
+        dic_obj = {}
+        FileStorage.__objects = {}
         if (exists(FileStorage.__file_path)):
             with open(FileStorage.__file_path, "r") as fil:
                 dic_obj = load(fil)

@@ -1,13 +1,12 @@
 #!/usr/bin/python3
+""" Amenity class """
 
-from datetime import datetime
 import uuid
-from models.base_model import BaseModel
+from datetime import datetime
 from models import storage
-
-"""Define Amenity Class"""
+from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """Define Amenity Class"""
+    """ Amenity class """
     name = ""
