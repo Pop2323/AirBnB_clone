@@ -6,6 +6,7 @@ import pep8
 import unittest
 from models.state import State
 
+
 class TestStateDocs(unittest.TestCase):
     """ Test docstring in the class """
 
@@ -21,6 +22,7 @@ class TestStateDocs(unittest.TestCase):
             if key in l_method:
                 doc = getattr(State, key).__doc__
                 self.assertIsNotNone(doc)
+
 
 class TestState(unittest.TestCase):
     """ Test creation objects and use methods """
@@ -45,6 +47,7 @@ class TestState(unittest.TestCase):
             os.remove("objects.json")
         except FileNotFoundError:
             pass
+
 
 if __name__ == '__main__':
     unittest.main()

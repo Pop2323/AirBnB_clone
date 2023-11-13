@@ -5,6 +5,7 @@ import os
 from models.base_model import BaseModel
 import pep8
 
+
 class TestBaseModel(unittest.TestCase):
     """Test BaseModel"""
 
@@ -19,8 +20,8 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save_method(self):
         """Test save method of BaseModel"""
-        self.test_base_model.save()
-        self.assertNotEqual(self.test_base_model.created_at, self.test_base_model.updated_at)
+        self.base.save()
+        self.assertNotEqual(self.base.created_at, self.base.updated_at)
 
     def test_docstring(self):
         """Test presence of docstring"""
@@ -35,6 +36,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(hasattr(base_model, "name"))
         self.assertFalse(hasattr(base_model, "updated_at"))
         self.assertTrue(hasattr(base_model, "__class__"))
+
 
 if __name__ == "__main__":
     unittest.main()

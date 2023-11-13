@@ -30,7 +30,7 @@ class MyCommand(cmd.Cmd):
         """This exits the cmd"""
         return True
 
-    # 'exit' is a built-in function in cmd.Cmd, so using 'do_exit' is not necessary
+    # 'exit' is a built-in function in cmd.Cmd.
     do_exit = do_EOF
 
     def emptyline(self):
@@ -100,7 +100,11 @@ class MyCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         instances = storage.all()
-        filtered_instances = [str(instance) for key, instance in instances.items() if key.split('.')[0] == class_name]
+        filtered_instances = [
+                str(instance)
+                for key, instance in instances.items()
+                if key.split('.')[0] == class_name
+                ]
         if not filtered_instances:
             print("[]")
         else:
@@ -122,10 +126,10 @@ class MyCommand(cmd.Cmd):
             instances = storage.all()
             if key in instances:
                 if len(args) > 2:
-                    attribute_name = args[2]
+                    attr_name = args[2]
                     if len(args) > 3:
-                        attribute_value = args[3]
-                        setattr(instances[key], attribute_name, attribute_value)
+                        attr_value = args[3]
+                        setattr(instances[key], attr_name, attr_value)
                         instances[key].save()
                     else:
                         print("** value missing **")

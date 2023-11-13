@@ -6,6 +6,7 @@ import os
 import pep8
 from models.amenity import Amenity
 
+
 class TestAmenity(unittest.TestCase):
     """Tests for Amenity class"""
 

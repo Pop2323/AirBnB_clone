@@ -11,15 +11,18 @@ Place = place.Place
 Review = review.Review
 State = state.State
 User = user.User
-name_class = ["BaseModel", "Amenity", "City", "Place", "Review", "State", "User"]
+name_class = ["BaseModel", "Amenity", "City",
+              "Place", "Review", "State", "User"]
+
 
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
-    
+
     def all(self):
         """return the dict __object"""
         return FileStorage.__objects
+
     def new(self, obj):
         """sets object with key in __obj"""
         class_name = obj.__class__.__name__

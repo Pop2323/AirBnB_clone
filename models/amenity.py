@@ -6,6 +6,8 @@ from models.base_model import BaseModel
 from models import storage
 
 """Define Amenity Class"""
+
+
 class Amenity(BaseModel):
     """Define Amenity Class"""
     name = ""

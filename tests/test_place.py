@@ -6,6 +6,7 @@ import pep8
 from models import place
 from models.base_model import BaseModel
 
+
 class TestPlace(unittest.TestCase):
     """ Tests Place """
 
@@ -27,7 +28,8 @@ class TestPlace(unittest.TestCase):
 
     def test_Place_dict(self):
         """ Place_dict """
-        attributes = ["id", "created_at", "updated_at", "city_id", "user_id", "name", "__class__"]
+        attributes = ["id", "created_at", "updated_at",
+                      "city_id", "user_id", "name", "__class__"]
         for attr in attributes:
             self.assertTrue(hasattr(self.place, attr))
 
@@ -35,6 +37,7 @@ class TestPlace(unittest.TestCase):
         """ Save_Place """
         self.place.save()
         self.assertNotEqual(self.place.created_at, self.place.updated_at)
+
 
 if __name__ == '__main__':
     unittest.main()
