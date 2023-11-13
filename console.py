@@ -18,7 +18,7 @@ Models = {"BaseModel": BaseModel, "Amenity": Amenity, "City": City,
           "Place": Place, "Review": Review, "State": State, "User": User}
 
 
-class MyCommand(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     """ hbnb command interpreter """
     prompt = '(hbnb) '
 
@@ -126,4 +126,4 @@ class MyCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    MyCommand().cmdloop()
+    HBNBCommand().cmdloop()
