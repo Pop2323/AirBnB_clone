@@ -20,8 +20,9 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save_method(self):
         """Test save method of BaseModel"""
-        self.base.save()
-        self.assertNotEqual(self.base.created_at, self.base.updated_at)
+        self.test_base_model.save()
+        self.assertNotEqual(self.test_base_model.created_at,
+                            self.test_base_model.updated_at)
 
     def test_docstring(self):
         """Test presence of docstring"""

@@ -1,26 +1,17 @@
-#!/usr/bin/python3
-
 import cmd
 import json
 import shlex
-from models.base_model import BaseModel
-from models.amenity import Amenity
-from models.city import City
-from models.place import Place
-from models.review import Review
-from models.state import State
-from models.user import User
 from models import storage
 
 Models = {
-    "BaseModel": BaseModel,
-    "Amenity": Amenity,
-    "City": City,
-    "Place": Place,
-    "Review": Review,
-    "State": State,
-    "User": User
-}
+        "BaseModel": BaseModel,
+        "Amenity": Amenity,
+        "City": City,
+        "Place": Place,
+        "Review": Review,
+        "State": State,
+        "User": User
+        }
 
 
 class MyCommand(cmd.Cmd):
@@ -30,8 +21,9 @@ class MyCommand(cmd.Cmd):
         """This exits the cmd"""
         return True
 
-    # 'exit' is a built-in function in cmd.Cmd.
-    do_exit = do_EOF
+    def do_quit(self, arg):
+        """ exit the program"""
+        return True
 
     def emptyline(self):
         """Don't do anything"""
@@ -101,10 +93,10 @@ class MyCommand(cmd.Cmd):
             return
         instances = storage.all()
         filtered_instances = [
-                str(instance)
-                for key, instance in instances.items()
-                if key.split('.')[0] == class_name
-                ]
+            str(instance)
+            for key, instance in instances.items()
+            if key.split('.')[0] == class_name
+        ]
         if not filtered_instances:
             print("[]")
         else:
