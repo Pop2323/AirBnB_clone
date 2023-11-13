@@ -127,4 +127,3 @@ class MyCommand(cmd.Cmd):
 
 if __name__ == '__main__':
     MyCommand().cmdloop()
-
