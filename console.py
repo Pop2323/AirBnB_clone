@@ -1,17 +1,26 @@
+#!/usr/bin/python3
+"""Console.py"""
+
 import cmd
 import json
-import shlex
 from models import storage
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
 
 Models = {
-        "BaseModel": BaseModel,
-        "Amenity": Amenity,
-        "City": City,
-        "Place": Place,
-        "Review": Review,
-        "State": State,
-        "User": User
-        }
+    "BaseModel": BaseModel,
+    "Amenity": Amenity,
+    "City": City,
+    "Place": Place,
+    "Review": Review,
+    "State": State,
+    "User": User
+}
 
 
 class MyCommand(cmd.Cmd):
@@ -21,9 +30,8 @@ class MyCommand(cmd.Cmd):
         """This exits the cmd"""
         return True
 
-    def do_quit(self, arg):
-        """ exit the program"""
-        return True
+    # 'exit' is a built-in function in cmd.Cmd.
+    do_exit = do_EOF
 
     def emptyline(self):
         """Don't do anything"""
