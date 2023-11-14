@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-"""Class HBNBCommand a program called console.py
-"""
+"""Class HBNBCommand"""
 
 import cmd
 import json
-import shlex  # Add this import for shlex
+import shlex
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
@@ -19,11 +18,11 @@ Models = {"BaseModel": BaseModel, "Amenity": Amenity, "City": City,
 
 
 class HBNBCommand(cmd.Cmd):
-    """ hbnb command interpreter """
+    """ hbnb interpreter """
     prompt = '(hbnb) '
 
     def do_EOF(self, arg):
-        """ End of file"""
+        """End the file"""
         return True
 
     def do_quit(self, arg):
@@ -31,7 +30,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
-        """don´t execute nothing """
+        """don´t execute command"""
         pass
 
     def do_create(self, args):
@@ -107,22 +106,22 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_all(self, args):
-        """Prints all string representations of all instances"""
+        """Prints all string of all instances"""
         split_args = shlex.split(args)
-        n_list = []
+        new_list = []
         dict_json = storage.all()
         if args:
             try:
                 for key in storage.all():
                     if split_args[0] == key.split('.')[0]:
-                        n_list.append(str(dict_json[key]))
-                print(n_list)
+                        new_list.append(str(dict_json[key]))
+                print(new_list)
             except Exception:
                 print("** class doesn't exist **")
         else:
             for key in storage.all():
-                n_list.append(str(storage.all()[key]))
-            print(n_list)
+                new_list.append(str(storage.all()[key]))
+            print(new_list)
 
 
 if __name__ == '__main__':
