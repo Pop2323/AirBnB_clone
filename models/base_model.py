@@ -37,7 +37,7 @@ class BaseModel:
 
     def __str__(self):
         """Define str"""
-        return("[{}] ({}) {}".format(
+        return ("[{}] ({}) {}".format(
             self.__class__.__name__,
             self.id, self.__dict__))
 
